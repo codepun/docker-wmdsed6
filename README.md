@@ -2,7 +2,7 @@
 
 Docker Files for Quick Testing of Watch My Domains SED v6 on Desktop.
 
-Use this to quickly spin up a test container for Watch My Domains SED v4 on your Windows or Mac Desktop.
+Use this to quickly spin up a test container for Watch My Domains SED v6 on your Windows or Mac Desktop.
 
 ## Watch My Domains SED
 
