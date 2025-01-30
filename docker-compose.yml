@@ -1,0 +1,23 @@
+services:
+  php:
+    build: wmdsed6
+    ports:
+      - "8000:80"
+    volumes:
+      - /var/www/html
+    links:
+      - wmdsed_db
+
+  wmdsed_db:
+    image: mysql:latest
+    container_name: wmdsed_db
+    volumes:
+     - ./wmdsed6/mysql:/var/lib/mysql
+    environment:
+     - MYSQL_DATABASE=wmdsed
+     - MYSQL_ROOT_PASSWORD=PqN67sxcrolaWnMqp
+     - MYSQL_USER=wmdsed
+     - MYSQL_PASSWORD=mspivs314opwYnq
+     
+    ports:
+     - "3306:3306"
