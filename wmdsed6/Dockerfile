@@ -22,8 +22,9 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # IonCube Loader
 ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
 RUN tar -xzvf /tmp/ioncube_loaders_lin_x86-64.tar.gz -C /usr/local/lib/php/extensions/no-debug-non-zts-20230831/ ioncube/ioncube_loader_lin_8.3.so --strip-components=1
-RUN printf "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20230831/ioncube_loader_lin_8.3.so" > /usr/local/etc/php/conf.d/ioncube.ini
-RUN chmod 644 /usr/local/etc/php/conf.d/ioncube.ini 
+#RUN printf "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20230831/ioncube_loader_lin_8.3.so" > /usr/local/etc/php/conf.d/ioncube.ini
+#RUN chmod 644 /usr/local/etc/php/conf.d/ioncube.ini 
+RUN sed -i '1i zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20230831/ioncube_loader_lin_8.3.so' "$PHP_INI_DIR/php.ini"
 
 # Watch My Domains SED	
 ADD https://domainpunch.com/sed/wmdsed60_trial.zip.php /tmp/
