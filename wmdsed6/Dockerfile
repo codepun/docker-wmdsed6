@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j $(nproc) zip\
     && docker-php-ext-configure pdo_mysql \
     && docker-php-ext-install -j $(nproc) pdo_mysql \
-	&& docker-php-ext-install intl
+	&& docker-php-ext-install intl \
+	&& docker-php-ext-install bcmath
 	
 	
 # Use the default production configuration
