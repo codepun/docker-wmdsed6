@@ -33,6 +33,8 @@ RUN unzip /tmp/wmdsed60_trial.zip.php -d /tmp/
 RUN mv /tmp/wmdsed60/* /var/www/html/
 RUN chmod a+w /var/www/html/logs
 COPY ./config.php /var/www/html/
+RUN chmod 644 /var/www/html/config.php \
+    && chown root:root /var/www/html/config.php
 
 # Setup cron
 RUN printf "* * * * * root /usr/local/bin/php /var/www/html/cron.php 2>&1\n# valid\n" > /etc/cron.d/wmdsed

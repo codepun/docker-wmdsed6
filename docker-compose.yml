@@ -1,6 +1,7 @@
 services:
   php:
     build: wmdsed6
+    platform: linux/amd64
     ports:
       - "8000:80"
     volumes:
